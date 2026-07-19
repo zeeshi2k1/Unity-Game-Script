@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         {
             verticalVelocity = -0.5f; // small downward force to keep grounded check reliable
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 verticalVelocity = jumpForce;
                 animator.SetTrigger("Jump");
