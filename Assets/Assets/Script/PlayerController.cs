@@ -34,7 +34,8 @@ public class PlayerController : MonoBehaviour
     {
         float currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
         float normalizedSpeed = currentSpeed / maxSpeed;
-        animator.SetFloat("Speed", normalizedSpeed);
+        float smoothedSpeed = Mathf.Lerp(animator.GetFloat("Speed"), normalizedSpeed, Time.deltaTime * 10f);
+        animator.SetFloat("Speed", smoothedSpeed);
         animator.SetBool("isGrounded", controller.isGrounded);
     }
 
